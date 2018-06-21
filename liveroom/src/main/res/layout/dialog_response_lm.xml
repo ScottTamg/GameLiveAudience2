@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp23"
+        android:gravity="center_horizontal">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dialog_response_img"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:backgroundImage="@color/rgb_eaeaea"
+            fresco:placeholderImage="@mipmap/ic_launcher"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@color/colorPrimary"
+            fresco:roundingBorderWidth="@dimen/common_line" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/dialog_response_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="观众一生"
+            android:textSize="@dimen/sp17" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:background="@color/continue_gift_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center_horizontal"
+       android:layout_marginTop="@dimen/dp15">
+       <TextView
+           android:id="@+id/dialog_response_userid"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="ID:983232"
+           android:textSize="@dimen/sp12"
+           android:layout_gravity="center_horizontal"/>
+   </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dialog_message_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            android:gravity="center"
+            android:text="请求与你进行连麦..."
+            android:textColor="@color/rgb_444444"
+            android:textSize="@dimen/text_size_md_subheading" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_message_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dialog_message_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_btn_height"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:text="拒绝"
+                android:textColor="@color/md_red_500"
+                android:textSize="@dimen/text_size_md_subheading" />
+
+            <Button
+                android:id="@+id/dialog_message_commit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_btn_height"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:text="接受"
+                android:textColor="@color/define_m_light_green"
+                android:textSize="@dimen/text_size_md_subheading" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

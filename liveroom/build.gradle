@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+repositories {
+    jcenter()
+    flatDir {
+        dirs 'libs'
+    }
+    mavenCentral()
+}
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compileOnly 'com.android.support:cardview-v7:27.1.1'
+    compileOnly 'com.android.support:recyclerview-v7:27.1.1'
+    compileOnly 'com.android.support:design:27.1.1'
+    //gson
+    compileOnly 'com.google.code.gson:gson:2.8.2'
+    //butterknife
+    compileOnly 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //rxjava
+    compileOnly 'io.reactivex:rxjava:1.3.0'
+    compileOnly 'io.reactivex:rxandroid:1.2.1'
+    compileOnly 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    //rxjavatrtrofit
+    compileOnly 'com.squareup.retrofit2:retrofit:2.4.0'
+    compileOnly 'com.squareup.retrofit2:converter-gson:2.4.0'
+    compileOnly 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+    //websocket加载服务器地址
+    compileOnly 'org.java-websocket:Java-WebSocket:1.3.8'
+    //ijkplayer
+    compileOnly(name: 'ijkplayer-exo-debug', ext: 'aar')
+    compileOnly(name: 'ijkplayer-java-debug', ext: 'aar')
+    //弹幕有关
+    compileOnly 'com.github.ctiao:DanmakuFlameMaster:0.4.8'
+    //直播SDK
+    //    compileOnly files('libs/TTT_VIDEOSDK(0128).aar')
+    compileOnly(name: 'wstechapi-release', ext: 'aar')
+    //picasso
+    compileOnly 'com.squareup.picasso:picasso:2.71828'
+    //glide
+    compileOnly 'com.github.bumptech.glide:glide:3.7.0'
+    //fresco
+    compileOnly 'com.facebook.fresco:fresco:1.9.0'
+    //记录应用中的网络请求的信息
+    compileOnly 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    //nohttp
+    compileOnly 'com.yolanda.nohttp:nohttp:1.0.2'
+    //recycleview分割
+    compileOnly 'com.github.magiepooh:recycler-itemdecoration:1.1.1@aar'
+    compileOnly 'de.hdodenhof:circleimageview:2.2.0'
+}

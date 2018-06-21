@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/room_ll_share"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/de_transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal" />
+
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dp20"
+        android:layout_marginRight="@dimen/dp20"
+        android:background="@drawable/shape_dialog_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_wechat"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_wechat"
+                    android:src="@drawable/sel_ic_share_wechat_large" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_wechat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_circle"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_wechat_friend_circle"
+                    android:src="@drawable/sel_ic_share_wechat_circle_large" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_wechat_friend_circle" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_qq"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_qq"
+                    android:src="@drawable/sel_ic_share_qq_large" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_qq" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_qzone"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_qzone"
+                    android:src="@drawable/sel_ic_share_qzone_large" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_qzone" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_weibo"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_weibo"
+                    android:src="@drawable/sel_ic_share_weibo_large" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_weibo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/player_share_ll_lianjie"
+                style="@style/RoomShareItem.Container">
+
+                <ImageView
+                    style="@style/RoomShareItem.Icon"
+                    android:contentDescription="@string/share_channel_lianjie"
+                    android:src="@drawable/sel_fenxianglianjie" />
+
+                <TextView
+                    style="@style/RoomShareItem.Text"
+                    android:text="@string/share_channel_lianjie" />
+
+            </LinearLayout>
+            <View
+                style="@style/RoomShareItem.Container"
+                android:visibility="invisible" />
+            <View
+                style="@style/RoomShareItem.Container"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp20"
+        android:layout_marginRight="@dimen/dp20"
+        android:id="@+id/iv_room_share_dismiss"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/sp18"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:text="@string/cancel"
+        android:background="@drawable/shape_fenxiang_quxiao"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="@dimen/dp40"/>
+
+</LinearLayout>

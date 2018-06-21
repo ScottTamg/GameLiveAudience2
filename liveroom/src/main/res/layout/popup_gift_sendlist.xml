@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/gift_num_ll"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@drawable/bg_setmeiyan"
+              android:paddingBottom="@dimen/dp15"
+              android:paddingTop="@dimen/dp10"
+              />

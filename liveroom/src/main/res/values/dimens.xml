@@ -1,0 +1,100 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+
+    <!--dp控件值-->
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp6">6dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp18">18dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp23">23dp</dimen>
+    <dimen name="dp24">24dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp35">35dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp45">45dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp55">55dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp72">72dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp125">125dp</dimen>
+    <dimen name="dp135">135dp</dimen>
+    <dimen name="dp205">205dp</dimen>
+    <dimen name="dp300">300dp</dimen>
+    <dimen name="avatar_size_default_big">50dp</dimen>
+    <dimen name="room_operation_icon_size">30dp</dimen>
+    <dimen name="room_continue_gift_margin_top">20.0dip</dimen>
+    <dimen name="room_continue_gift_corner_height">160.0dip</dimen>
+
+    <!-- dialog -->
+    <dimen name="dialog_radiou">10dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_micro">5dp</dimen>
+    <dimen name="room_chat_height">40dp</dimen>
+
+    <!-- gift item -->
+    <dimen name="item_gift_icon_size">48dp</dimen>
+    <dimen name="item_gift_tv_margin">2dp</dimen>
+    <dimen name="dialog_btn_height">40dp</dimen>
+    <dimen name="dialog_content_margin">25dp</dimen>
+    <dimen name="margin_group">32dp</dimen>
+
+    <dimen name="common_line">0.5dp</dimen><![CDATA[
+
+
+
+
+    !-- heartAnim -->
+    ]]>
+    <dimen name="heart_anim_height">250dp</dimen>
+    <dimen name="heart_anim_width">200dp</dimen>
+    <dimen name="heart_rate">0.75dp</dimen>
+
+    <!--IM-->
+    <!-- 全局使用的大小 -->
+    <!--    ================================================================================-->
+    <!--sp控件值-->
+    <dimen name="sp11">11sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp21">21sp</dimen>
+    <dimen name="sp17">17sp</dimen>
+    <dimen name="sp20">20sp</dimen>
+    <dimen name="sp25">25sp</dimen>
+
+    <dimen name="text_size_md_smallest">12sp</dimen>
+    <dimen name="text_size_md_button">15sp</dimen>
+    <dimen name="text_size_md_subheading">17sp</dimen>
+
+
+    <!-- 文字的大小 -->
+
+    <dimen name="room_heart_fixed_size">18dp</dimen>
+
+    <dimen name="status_bar_height">25dp</dimen>
+
+    <dimen name="sp10">10sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="dp70photo">70dp</dimen>
+    <dimen name="x170">70dp</dimen>
+    <dimen name="x6">6dp</dimen>
+    <dimen name="x4">2dp</dimen>
+    <dimen name="x32">8dp</dimen>
+    <dimen name="x140">40dp</dimen>
+    <dimen name="dp180">180dp</dimen>
+    <dimen name="rc_dimen_size_44">44dp</dimen>
+
+    <dimen name="dialog_btn_shape_radio">20dp</dimen>
+
+</resources>

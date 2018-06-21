@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:paddingBottom="@dimen/dp10"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingRight="@dimen/dp10">
+
+    <RelativeLayout
+        android:id="@+id/rl_user_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_dialog_bg">
+
+        <TextView
+            android:id="@+id/dialog_user_info_complaint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/text_size_md_smallest"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/complaint"
+            android:textColor="@color/color_text_gray"
+            android:textSize="@dimen/text_size_md_smallest"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dialog_user_info_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/text_size_md_smallest"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/end_publish"
+            android:textColor="@color/color_text_gray"
+            android:textSize="@dimen/text_size_md_smallest"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dialog_user_info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp45"
+            android:text="@string/user_name"
+            android:textColor="@color/color_4E4E4E"
+            android:textSize="@dimen/text_size_md_button" />
+
+        <LinearLayout
+            android:id="@+id/ll_user_info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_user_info_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp10"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dialog_user_info_userid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ID: "
+                android:textColor="@color/color_text_gray"
+                android:textSize="@dimen/text_size_md_smallest" />
+
+            <TextView
+                android:id="@+id/dialog_user_info_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp12"
+                android:drawableLeft="@drawable/kaibodizhi"
+                android:gravity="center"
+                android:text="@string/live_menu_address"
+                android:textColor="@color/color_text_gray"
+                android:textSize="@dimen/text_size_md_smallest" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialog_user_info_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_user_info_name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/dp20"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/this_guy_is_too_lazy_what_did_not_leave"
+            android:textColor="@color/color_4E4E4E"
+            android:textSize="@dimen/sp12"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/dialog_user_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_user_info_signature"
+            android:layout_marginTop="@dimen/dp20"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/dialog_user_info_star_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/room_live_finish_users_num_default"
+                    android:textColor="@color/color_4E4E4E"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/userinfo_dialog_fans"
+                    android:textColor="@color/color_text_gray"
+                    android:textSize="@dimen/sp12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/dialog_user_info_star_num2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/room_live_finish_users_num_default"
+                    android:textColor="@color/color_4E4E4E"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/userinfo_dialog_poll"
+                    android:textColor="@color/color_text_gray"
+                    android:textSize="@dimen/sp12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/dialog_user_info_star_num3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/room_live_finish_users_num_default"
+                    android:textColor="@color/color_4E4E4E"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/userinfo_dialog_poll"
+                    android:textColor="@color/color_text_gray"
+                    android:textSize="@dimen/sp12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/dialog_user_info_star_num4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/room_live_finish_users_num_default"
+                    android:textColor="@color/color_4E4E4E"
+                    android:textSize="@dimen/sp12" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/userinfo_dialog_poll"
+                    android:textColor="@color/color_text_gray"
+                    android:textSize="@dimen/sp12" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/dialog_user_info_line3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/dialog_user_info_layout"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/rgb_d8d8d8"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/dialog_user_tab_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rc_dimen_size_44"
+            android:layout_below="@id/dialog_user_info_line3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/dialog_user_info_star"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/user_dialog_star"
+                android:textColor="@color/color_text_gray"
+                android:textSize="@dimen/sp12" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp6"
+                android:layout_marginTop="@dimen/dp6"
+                android:background="@color/rgb_d8d8d8" />
+
+            <TextView
+                android:id="@+id/dialog_user_info_prv_chat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/me_tell"
+                android:textColor="@color/color_text_gray"
+                android:textSize="@dimen/sp12" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dialog_user_info_photo"
+        android:layout_width="@dimen/dp70photo"
+        android:layout_height="@dimen/dp70photo"
+        android:layout_above="@+id/rl_user_info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-33dp"
+        android:background="@drawable/photo_round_bg"
+        android:padding="@dimen/dp2"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:fadeDuration="300"
+        fresco:failureImage="@drawable/ic_launcher_author"
+        fresco:failureImageScaleType="centerInside"
+        fresco:placeholderImage="@drawable/ic_default_head"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true" />
+</RelativeLayout>

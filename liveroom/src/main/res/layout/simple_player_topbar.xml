@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:fresco="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/app_video_top_box"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#00000000"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/simple_player_chevron_left_white_36dp"/>
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/app_video_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/simple_player_menu"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/player_owner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_toRightOf="@+id/user_avatar"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/shape_host_info_bg"
+                android:paddingBottom="@dimen/dp6"
+                android:paddingLeft="54dp"
+                android:paddingRight="@dimen/dp6"
+                android:paddingTop="@dimen/dp6">
+
+                <TextView
+                    android:id="@+id/app_video_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxEms="7"
+                    android:singleLine="true"
+                    android:text="@string/jmui_username"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp10" />
+
+                <TextView
+                    android:id="@+id/user_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/app_video_title"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:maxEms="5"
+                    android:text="ID123"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp10" />
+
+            </RelativeLayout>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_avatar"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:scaleType="fitCenter"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:backgroundImage="@color/rgb_eaeaea"
+                fresco:roundAsCircle="true"
+                fresco:roundingBorderColor="@color/white"
+                fresco:roundingBorderWidth="@dimen/common_line" />
+
+            <ImageView
+                android:id="@+id/app_video_finish"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sel_close_live"/>
+        </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_below="@+id/player_owner"-->
+            <!--android:layout_alignLeft="@+id/player_owner"-->
+            <!--android:id="@+id/txt_gold_count"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="@dimen/dp20"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:background="@drawable/shape_host_info_bg"-->
+            <!--android:drawablePadding="@dimen/dp6"-->
+            <!--android:drawableRight="@drawable/ic_me_next"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingLeft="@dimen/dp6"-->
+            <!--android:paddingRight="@dimen/dp6"-->
+            <!--android:text="11110"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/sp12" />-->
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/lm_list_ll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp10">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/avatar_img"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="center"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@drawable/ic_launcher_author"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@color/white"
+            fresco:roundingBorderWidth="5dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:id="@+id/nickName_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sssssss"
+                android:textColor="@color/set_font_color"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/introduction_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ssss"
+                android:textColor="#a9a9a9"
+                android:textSize="@dimen/sp11" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/dp10"
+        android:background="@drawable/follow_bg_green"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="接受"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp20"
+        android:background="@drawable/follow_bg_white"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="拒绝"
+        android:textColor="@color/title_bar_bg"
+        android:textSize="@dimen/sp12"
+        android:visibility="visible" />
+
+</LinearLayout>

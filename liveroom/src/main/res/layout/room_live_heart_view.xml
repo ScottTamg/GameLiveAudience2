@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/heart_anim_width"
+    android:layout_height="@dimen/heart_anim_height"
+    android:layout_above="@+id/room_ll_operation_bar"
+    android:layout_marginBottom="@dimen/dp100"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true">
+
+    <com.ttt.liveroom.widget.heardanim.HeartAnim
+        android:id="@id/room_heart_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

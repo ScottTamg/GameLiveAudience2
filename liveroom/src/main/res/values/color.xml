@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="me_btn_bg_press">#ff6e6e6e</color>
+
+    <color name="cl_room_top_default">#44424242</color>
+    <color name="set_font_color">#ff4e4e4e</color>
+
+    <color name="md_red_500">#F44336</color>
+
+    <color name="black_trans_40">#66000000</color>
+
+    <color name="colorSecondaryText">#727272</color>
+
+    <color name="continue_gift_bg">#0F3F3F3F</color>
+
+    <color name="md_grey_300">#E0E0E0</color>
+    <color name="md_pink_500">#E91E63</color>
+
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="continue_gift_desc">#ffffff66</color>
+    <color name="md_blue_grey_50">#ECEFF1</color>
+    <color name="rgb_444444">#444444</color>
+    <color name="yunkacolor_60">#50bcc5</color>
+    <color name="rgb_AAAAAA">#AAAAAA</color>
+    <color name="continue_gift_x_color">#ff33cccc</color>
+    <color name="md_orange_400">#FFA726</color>
+    <color name="live_finish_bg">#ab000000</color>
+
+    <color name="yunkacolor_b_1">#e0e0e0</color>
+    <color name="white_trans_40">#66ffffff</color>
+    <color name="rgb_eaeaea">#EAEAEA</color>
+    <color name="rgb_d8d8d8">#d8d8d8</color>
+
+    <color name="md_orange_500">#FF9800</color>
+    <color name="md_yellow_500">#FFEB3B</color>
+    <color name="md_green_500">#4CAF50</color>
+    <color name="md_blue_500">#2196F3</color>
+    <color name="md_purple_500">#9C27B0</color>
+    <color name="md_white">#FFFFFF</color>
+
+    <!--IM-->
+    <color name="jmui_chat_detail_split_line_color">#d4d4d4</color>
+
+
+    <color name="item_public_chat_username">#ffd77e17</color>
+    <color name="item_public_chat_shader">#ff333333</color>
+    <color name="item_public_msg_content">@color/white</color>
+
+    <color name="continue_gift_x_border">#ffffff00</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="pickerview_timebtn_nor">#057dff</color>
+
+    <color name="dialog_userinfo_sent_color">#ff9a10</color>
+
+
+    <color name="title_bar_color">#0050be</color>
+    <color name="define_m_orgine">#ffbe00</color>
+    <color name="define_m_light_green">#22BFED</color>
+    <color name="title_bar_bg">#24D4BD</color>
+    <!--<color name="define_m_blue">#0050be</color>-->
+
+    <!-- 融云-->
+    <color name="de_title_bg">#0195ff</color>
+    <color name="press">#e8e8e8</color>
+    <color name="group_list_gray">#999999</color>
+    <!---->
+    <color name="de_transparent">#00000000</color>
+    <color name="text_tips_color">#666666</color>
+    <color name="color_4E4E4E">#4E4E4E</color>
+    <color name="title_view_bg">#0CB09B</color>
+
+    <color name="color_desc">#666666</color>
+
+    <color name="color_text_gray">#A8A8A8</color>
+    <color name="color_text_black">#5B5B5B</color>
+    <color name="color_text_green">#24D4BD</color>
+    <color name="main_color">#FF61CAF4</color>
+    <color name="chat_item_name">#FFFF5E</color>
+    <color name="color_949494">#FF949494</color>
+    <color name="red">#FF0000</color>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Grey-->
+    <color name="Gray_bg">#F4F4F4</color>
+    <color name="Grey_300">#E0E0E0</color>
+    <color name="simple_player_stream_name_playing">#ff0043bd</color>
+    <color name="simple_player_stream_name_normal">#ffffffff</color>
+</resources>

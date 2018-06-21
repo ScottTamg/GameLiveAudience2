@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:paddingLeft="@dimen/dp15"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:text="@string/user_list"/>
+    <View
+        android:background="#e0e0e0"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/user_list_rl"
+        android:layout_marginBottom="@dimen/dp100"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/limt_user_list_count"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/dp15"
+        android:gravity="center"
+        android:textColor="#FF4E4E4E"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:text="最多仅显示前100人"/>
+
+</LinearLayout>

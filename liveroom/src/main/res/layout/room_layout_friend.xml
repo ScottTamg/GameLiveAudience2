@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_friend"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:layout_alignParentBottom="true"
+    android:background="@color/black_trans_40"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <com.ttt.liveroom.widget.getfriendview.GetFriendLayout
+        android:id="@+id/friend"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line"
+        android:layout_below="@id/friend"
+        android:background="@color/white_trans_40" />
+
+    <LinearLayout
+        style="@style/room_gift_oper_container"
+        android:layout_below="@id/friend">
+
+        <TextView
+            style="@style/room_friend_chargeinfor_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/layout_friend_btn_close"
+            style="@style/room_friend_btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

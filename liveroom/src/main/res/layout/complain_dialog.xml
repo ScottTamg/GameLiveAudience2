@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp12"
+        android:background="@drawable/shape_top_complain"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="请选择举报原因"
+        />
+
+    <View
+        android:background="@color/rgb_d8d8d8"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <ListView
+        android:listSelector="@android:color/transparent"
+        android:background="@drawable/shape_dialog_complain_bg_bottom"
+        android:id="@+id/dialog_complain_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/shape_dialog_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:orientation="horizontal">
+
+            <Button
+                android:gravity="center"
+                android:background="@null"
+                android:id="@+id/dialog_comlain_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_btn_height"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                android:textColor="@drawable/sel_dialog_cancel_text"
+                android:textSize="@dimen/sp12" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/dialog_comlain_commit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_btn_height"
+                android:layout_weight="1"
+                android:background="@drawable/sel_room_btn"
+                android:text="@string/commit"
+                android:textColor="@drawable/sel_btn_txt_color"
+                android:textSize="@dimen/text_size_md_subheading" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

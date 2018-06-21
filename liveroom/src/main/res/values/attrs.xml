@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义控件的名称 -->
+    <declare-styleable name="StrokeTextView">
+        <!-- 自定义的属性名称 和对应的单位 -->
+        <attr name="outerColor" format="color|reference" />
+        <attr name="innerColor" format="color|reference" />
+    </declare-styleable>
+    <declare-styleable name="emotionTextView">
+        <attr name="emotionRegexPattern" format="string"/>
+        <attr name="emotionText" format="string"/>
+    </declare-styleable>
+    <declare-styleable name = "face_style">
+        <attr name = "face_row" format = "integer" />
+        <attr name = "face_column" format = "integer" />
+        <attr name="face_point_margin" format="dimension"/>
+        <attr name="face_point_src_select" format="reference"/>
+        <attr name="face_point_src_normol" format="reference"/>
+        <attr name="face_item_padding" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="CircleProgress">
+        <attr name="color1" format="reference|color"/>
+        <attr name="color2" format="reference|color"/>
+        <attr name="color3" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="NumberPicker">
+        <attr name="normalTextColor" format="color" />
+        <attr name="normalTextSize" format="dimension" />
+        <attr name="selecredTextColor" format="color" />
+        <attr name="selecredTextSize" format="dimension" />
+        <attr name="unitHight" format="dimension" />
+        <attr name="itemNumber" format="integer"/>
+        <attr name="lineColor" format="color" />
+        <attr name="maskHight" format="dimension"/>
+        <attr name="noEmpty" format="boolean"/>
+        <attr name="isEnable" format="boolean"/>
+    </declare-styleable>
+
+    <!--IM-->
+    <declare-styleable name="HoloCircularProgressBar">
+        <attr name="stroke_width" format="dimension" />
+        <attr name="progress" format="float" />
+        <attr name="marker_progress" format="float" />
+        <attr name="progress_color" format="color" />
+        <attr name="progress_background_color" format="color" />
+        <attr name="thumb_visible" format="boolean" />
+        <attr name="marker_visible" format="boolean" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+
+    <attr name="circularProgressBarStyle" format="reference" />
+
+    <attr name="siArrowPosition">
+        <enum name="left" value="0" />
+        <enum name="right" value="1" />
+    </attr>
+    <attr name="siBorderType">
+        <enum name="stroke" value="0" />
+        <enum name="fill" value="1" />
+    </attr>
+    <attr name="siStrokeCap">
+        <enum name="butt" value="0" />
+        <enum name="round" value="1" />
+        <enum name="square" value="2" />
+    </attr>
+    <attr name="siStrokeJoin">
+        <enum name="bevel" value="0" />
+        <enum name="miter" value="1" />
+        <enum name="round" value="2" />
+    </attr>
+
+    <declare-styleable name="drop_down_list_attr">
+        <attr name="isDropDownStyle" format="boolean" />
+        <attr name="isOnBottomStyle" format="boolean" />
+        <attr name="isAutoLoadOnBottom" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SettingItemView">
+        <attr name="ischeck_enable" format="boolean" />
+        <attr name="text_title" format="string|reference" />
+        <attr name="item_background" format="integer|reference" />
+    </declare-styleable>
+
+    <!--圆角头像-->
+    <declare-styleable name="SelectableRoundedImageView">
+        <attr name="sriv_left_top_corner_radius" format="dimension" />
+        <attr name="sriv_right_top_corner_radius" format="dimension" />
+        <attr name="sriv_left_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_right_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_border_width" format="dimension" />
+        <attr name="sriv_border_color" format="color" />
+        <attr name="sriv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+
+
+</resources>

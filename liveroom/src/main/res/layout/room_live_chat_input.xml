@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/room_ll_chat_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/room_chat_height"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white"
+    android:clickable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="invisible">
+
+    <RelativeLayout
+        android:id="@+id/room_danmu"
+        android:layout_width="@dimen/dp72"
+        android:layout_height="38dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/room_danmu_close"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/tanping" />
+
+        <ImageView
+            android:id="@+id/room_danmu_open"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/tanping_dianji"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp6"
+        android:background="@color/rgb_d8d8d8" />
+
+    <EditText
+        android:id="@+id/room_edt_chat"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:hint="@string/say_something"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="@dimen/sp12" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp6"
+        android:background="@color/rgb_d8d8d8" />
+
+    <TextView
+        android:id="@+id/room_btn_send"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/room_send"
+        android:textColor="@color/color_text_green"
+        android:textSize="@dimen/text_size_md_smallest" />
+</LinearLayout>

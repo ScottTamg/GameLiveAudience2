@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:duration="@integer/continue_gift_show_duration">
+    <alpha
+        android:fromAlpha="1"
+        android:toAlpha="0"/>
+    <translate
+        android:fromYDelta="0.0%"
+        android:toYDelta="-50.0%"/>
+</set>

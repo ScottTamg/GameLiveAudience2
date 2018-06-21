@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imgbtn_toolbar_back" type="id" />
+    <item name="tv_toolbar_title" type="id" />
+    <item name="tv_toolbar_right" type="id" />
+
+    <item name="room_ll_operation_bar" type="id" />
+    <item name="room_coin_rank_lay" type="id"/>
+    <item name="room_imgbtn_public_chat" type="id" />
+    <item name="room_imgbtn_friend" type="id" />
+    <item name="room_imgbtn_screen" type="id"/>
+    <item name="room_imgbtn_share" type="id" />
+    <item name="room_imgbtn_rotate" type="id" />
+    <item name="room_imgbtn_prvchat" type="id" />
+    <item name="room_imgbtn_gift" type="id" />
+    <item name="room_imgbtn_close" type="id" />
+    <item name="room_imgbtn_music" type="id" />
+    <item name="room_imgbtn_flash" type="id" />
+    <item name="room_imgbtn_replay" type="id" />
+    <item name="room_ll_chat_bar" type="id" />
+    <item name="room_edt_chat" type="id" />
+    <item name="room_btn_send" type="id" />
+    <item name="room_heart_view" type="id" />
+    <item name="room_ll_share" type="id" />
+    <item name="room_imgbtn_lm" type="id"/>
+    <item name="img_user_avatar" type="id"/>
+    <item name="img_user_star_type" type="id"/>
+
+</resources>

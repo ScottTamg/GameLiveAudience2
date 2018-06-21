@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/gift_send_listitem"
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/margin_group">
+    <TextView
+        android:id="@+id/send_gift_num"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp20"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/margin_group"
+        android:textSize="@dimen/sp12"
+        android:textColor="@color/dialog_userinfo_sent_color"/>
+
+    <TextView
+        android:id="@+id/send_gift_name"
+        android:gravity="center"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/margin_group"
+        android:textSize="@dimen/sp12"
+        android:textColor="@color/color_949494"/>
+
+</LinearLayout>

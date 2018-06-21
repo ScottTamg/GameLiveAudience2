@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        style="@style/UserAvatarRiv"
+        fresco:failureImage="@drawable/zhuboganlai"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:backgroundImage="@color/rgb_eaeaea"
+        fresco:placeholderImage="@drawable/ic_launcher_author"
+        fresco:roundAsCircle="true" />
+
+    <ImageView
+        android:visibility="gone"
+        style="@style/UserStarTypeImg"
+        android:src="@drawable/global_star_1" />
+
+</RelativeLayout>

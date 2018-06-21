@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="UserAvatarRiv">
+        <item name="android:id">@id/img_user_avatar</item>
+        <item name="android:layout_width">@dimen/avatar_size_default_big</item>
+        <item name="android:layout_height">@dimen/avatar_size_default_big</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="UserStarTypeImg">
+        <item name="android:id">@id/img_user_star_type</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignRight">@id/img_user_avatar</item>
+        <item name="android:layout_alignBottom">@id/img_user_avatar</item>
+    </style>
+
+    <style name="RoomUserOperationImgBtn">
+        <item name="android:layout_width">@dimen/room_operation_icon_size</item>
+        <item name="android:layout_height">@dimen/room_operation_icon_size</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <!-- 整个PopupWindow的背景-->
+
+
+    <!-- 单行菜单样式。-->
+
+    <!-- 菜单栏之间的分割线样式 -->
+
+    <!-- 送礼条上的显示文字 -->
+    <style name="continue_gift_info_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="RoomShareItem" />
+
+    <style name="RoomShareItem.Container">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/sel_me_btn_bg</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <style name="RoomShareItem.Icon">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="RoomShareItem.Text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/text_size_md_subheading</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+</resources>

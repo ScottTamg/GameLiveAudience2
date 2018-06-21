@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/room_recycler_chat"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginRight="@dimen/dp125"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:layout_above="@+id/room_ll_operation_bar"/>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/room_ll_operation_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/transparent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp10"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/room_tvbtn_public_chat"
+        android:layout_width="130dp"
+        android:layout_height="@dimen/dp30"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/shape_host_info_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp10"
+        android:text="@string/say_something"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12" />
+
+    <Space style="@style/Space.Horizontal" />
+
+    <ImageButton
+        android:id="@id/room_imgbtn_share"
+        style="@style/RoomUserOperationImgBtn"
+        android:background="@drawable/fenxiang" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/room_imgbtn_xiaoxi"
+            style="@style/RoomUserOperationImgBtn"
+            android:background="@drawable/xiaoxi" />
+
+        <View
+            android:id="@+id/view_red_im"
+            android:layout_width="@dimen/dp10"
+            android:layout_height="@dimen/dp10"
+            android:layout_alignEnd="@+id/room_imgbtn_xiaoxi"
+            android:layout_alignTop="@+id/room_imgbtn_xiaoxi"
+            android:background="@drawable/shape_red_bg"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@id/room_imgbtn_gift"
+        style="@style/RoomUserOperationImgBtn"
+        android:background="@drawable/liwo" />
+
+
+</LinearLayout>

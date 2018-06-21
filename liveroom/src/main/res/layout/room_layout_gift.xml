@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_gift"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp300"
+    android:layout_alignParentBottom="true"
+    android:background="@color/black_trans_40"
+    android:clickable="true"
+    android:orientation="vertical">
+
+
+    <com.ttt.liveroom.widget.giftview.GiftLayoutView
+        android:layout_below="@+id/rl_gift_title"
+        android:layout_marginTop="@dimen/dp5"
+        android:id="@+id/gift"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp205" />
+
+    <RelativeLayout
+
+        android:id="@+id/rl_gift_title"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:textSize="@dimen/sp12"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:text="发送礼物"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/iv_gone_gift"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp10"
+            android:src="@drawable/sel_liwu_up_down"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp45"/>
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line"
+        android:layout_below="@id/gift"
+        android:background="@color/white_trans_40"
+         />
+
+    <TextView
+        android:id="@+id/layout_gift_btn_continue"
+        style="@style/room_gift_btn_continuesend"
+        android:layout_alignParentBottom="true"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:id="@+id/layout_gift_btnlay"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp20"
+        style="@style/room_gift_oper_container"
+        android:layout_below="@+id/gift"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_gift_btn_charge"
+            style="@style/room_gift_btn_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:background="@drawable/sel_gift_send"
+                android:textColor="@color/white"
+                android:text="@string/charge_charge_tip"
+                android:layout_width="@dimen/dp45"
+                android:layout_height="@dimen/dp25" />
+
+            <ImageView
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:src="@drawable/liwutbi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/room_gift_chargeinfor_balance"
+                style="@style/room_gift_chargeinfor_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/layout_gift_charge_tv"
+                style="@style/room_gift_account_balance_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                tools:text="0" />
+
+            <ImageView
+                style="@style/room_gift_account_balance_img"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <ImageView
+                android:visibility="gone"
+                style="@style/room_gift_account_balance_right_img"
+                android:contentDescription="@string/app_name" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/show_gift_sendlist"
+            android:gravity="center"
+            android:background="#FF000000"
+            android:textColor="@color/white"
+            android:text="1"
+            android:paddingRight="@dimen/dp15"
+            android:paddingLeft="@dimen/dp15"
+            android:drawableRight="@drawable/sel_liwu_up_down"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp25" />
+
+        <Button
+            android:id="@+id/layout_gift_btn_send"
+            android:background="@drawable/sel_gift_send"
+            android:textColor="@color/white"
+            android:text="@string/room_send"
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp25" />
+
+
+    </LinearLayout>
+</RelativeLayout>

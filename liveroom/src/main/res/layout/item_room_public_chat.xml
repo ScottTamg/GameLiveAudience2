@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_public_chat_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|start"
+    android:orientation="horizontal"
+    android:shadowColor="@color/item_public_chat_shader"
+    android:shadowDx="1"
+    android:shadowDy="1"
+    android:shadowRadius="1"
+    android:textColor="@color/item_public_chat_username"
+    android:textSize="@dimen/sp12"
+    tools:text="Hello World" />

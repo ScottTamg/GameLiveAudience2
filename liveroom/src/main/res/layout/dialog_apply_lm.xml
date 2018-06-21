@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp35"
+        android:src="@drawable/live_apply_lm" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/dialog_message_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dialog_content_margin"
+            android:gravity="center"
+            android:text="申请主播连麦..."
+            android:textColor="@color/rgb_444444"
+            android:textSize="@dimen/text_size_md_subheading" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_message_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/dialog_me_gray"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/dialog_message_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="@dimen/dp5"
+                android:background="@color/continue_gift_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dialog_message_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dialog_btn_height"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="@string/cancel"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_md_subheading" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_gravity="center"
+                    android:background="@color/black_trans_40" />
+
+                <Button
+                    android:id="@+id/dialog_message_commit"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dialog_btn_height"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="@string/commit"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_md_subheading" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

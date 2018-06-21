@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp10"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingRight="@dimen/dp10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_dialog_bg"
+        android:divider="@color/rgb_d8d8d8"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            android:text="@string/admin_title"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/sp12"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_set_control"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            android:text="@string/setting_control"
+            android:textColor="@color/color_text_green"
+            android:textSize="@dimen/sp12" />
+
+        <TextView
+            android:id="@+id/tv_msg_gag"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            android:text="@string/room_live_manage_gag"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/sp12" />
+
+        <TextView
+            android:id="@+id/tv_report"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            android:text="@string/jubao"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/sp12" />
+
+        <TextView
+            android:id="@+id/tv_pull_black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            android:text="@string/pull_black"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/sp12" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/shape_dialog_bg"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp12" />
+
+</LinearLayout>

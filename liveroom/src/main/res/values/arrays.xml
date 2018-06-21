@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"    tools:ignore="MissingTranslation">
+    <integer-array name="room_heart_colors">
+        <item>@color/md_red_500</item>
+        <item>@color/md_orange_500</item>
+        <item>@color/md_yellow_500</item>
+        <item>@color/md_green_500</item>
+        <item>@color/md_blue_500</item>
+        <item>@color/md_pink_500</item>
+        <item>@color/md_purple_500</item>
+        <item>@color/md_white</item>
+    </integer-array>
+</resources>

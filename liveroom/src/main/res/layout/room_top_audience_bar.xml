@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/room_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp10"
+    android:layout_marginRight="38dp"
+    android:layout_marginTop="@dimen/dp20"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/room_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/shape_host_info_bg"
+                android:paddingBottom="@dimen/dp6"
+                android:paddingLeft="54dp"
+                android:paddingRight="@dimen/dp6"
+                android:paddingTop="@dimen/dp6">
+
+                <TextView
+                    android:id="@+id/room_tv_label_user_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxEms="7"
+                    android:singleLine="true"
+                    android:text="@string/jmui_username"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp10" />
+
+                <TextView
+                    android:id="@+id/room_tv_live_user_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/room_tv_label_user_count"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:maxEms="5"
+                    android:singleLine="true"
+                    android:text="@string/get_host_fensi"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp10" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/room_top_bar_start_tv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_toRightOf="@+id/room_tv_live_user_job"
+                    android:background="@drawable/room_top_bar_start_bg"
+                    android:gravity="center"
+                    android:text="@string/room_top_tab_start"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp12" />
+            </RelativeLayout>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_user_avatar"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:scaleType="fitCenter"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:backgroundImage="@color/rgb_eaeaea"
+                fresco:placeholderImage="@drawable/ic_launcher_author"
+                fresco:roundAsCircle="true"
+                fresco:roundingBorderColor="@color/colorPrimary"
+                fresco:roundingBorderWidth="@dimen/common_line" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/room_recycler_audience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_toRightOf="@+id/room_owner" />
+
+        <TextView
+            android:id="@+id/room_tv_live_user_count"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/dp6"
+            android:layout_marginTop="@dimen/dp6"
+            android:background="@drawable/shape_user_list"
+            android:gravity="center"
+
+            android:text="10W+"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp12" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_gold_count"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_host_info_bg"
+        android:drawablePadding="@dimen/dp6"
+        android:drawableRight="@drawable/ic_me_next"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp6"
+        android:paddingRight="@dimen/dp6"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12" />
+
+</LinearLayout>

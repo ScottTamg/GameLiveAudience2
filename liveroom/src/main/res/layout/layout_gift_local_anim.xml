@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:minHeight="60dp">
+
+    <View
+        android:layout_width="20.0dip"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginTop="@dimen/dp40"
+        android:background="@color/continue_gift_bg" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/gift_anim_drawee_creator"
+        android:layout_width="40.0dip"
+        android:layout_height="40.0dip"
+        android:layout_marginTop="@dimen/room_continue_gift_margin_top"
+        fresco:fadeDuration="0"
+        fresco:placeholderImage="@drawable/ic_default_head"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true"
+        fresco:roundingBorderColor="@color/white"
+        fresco:roundingBorderWidth="1.0dip" />
+
+    <LinearLayout
+        android:id="@+id/gift_anim_info_container"
+        android:layout_width="110.0dip"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_toRightOf="@id/gift_anim_drawee_creator"
+        android:background="@color/continue_gift_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="5.0dip">
+
+        <TextView
+            android:id="@+id/gift_anim_tv_nickname"
+            style="@style/continue_gift_info_txt"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gift_anim_tv_gift_action"
+            style="@style/continue_gift_info_txt"
+            android:text=""
+            android:textColor="@color/continue_gift_desc" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/gift_icon_bg"
+        android:layout_width="80.0dip"
+        android:layout_height="40.0dip"
+        android:layout_marginTop="@dimen/room_continue_gift_margin_top"
+        android:layout_toRightOf="@id/gift_anim_info_container"
+        android:background="@drawable/shape_bkg_combo_gift" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/gift_anim_drawee_gift"
+        android:layout_width="50.0dip"
+        android:layout_height="50.0dip"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10.0dip"
+        android:layout_toRightOf="@id/gift_anim_info_container"
+        android:visibility="visible"
+        fresco:fadeDuration="0"
+        fresco:placeholderImageScaleType="fitCenter" />
+
+    <com.wushuang.live.ui.widget.StrokeTextView
+        android:id="@+id/gift_anim_tv_combo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dip"
+        android:layout_toRightOf="@id/gift_anim_drawee_gift"
+        android:gravity="center_horizontal"
+        android:padding="10.0dip"
+        android:textColor="@color/continue_gift_x_color"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:innerColor="@color/continue_gift_x_color"
+        app:outerColor="@color/md_orange_400"
+        tools:text="X1" />
+</RelativeLayout>

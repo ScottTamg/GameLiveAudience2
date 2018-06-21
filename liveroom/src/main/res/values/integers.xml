@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="fragment_transition_time">@android:integer/config_shortAnimTime</integer>
+    <integer name="continue_gift_show_duration">600</integer>
+    <integer name="continue_gift_combo_duration">150</integer>
+
+</resources>
