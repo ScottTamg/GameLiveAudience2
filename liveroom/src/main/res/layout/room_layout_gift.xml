@@ -11,43 +11,43 @@
 
 
     <com.ttt.liveroom.widget.giftview.GiftLayoutView
-        android:layout_below="@+id/rl_gift_title"
-        android:layout_marginTop="@dimen/dp5"
         android:id="@+id/gift"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp205" />
+        android:layout_height="@dimen/dp205"
+        android:layout_below="@+id/rl_gift_title"
+        android:layout_marginTop="@dimen/dp5" />
 
     <RelativeLayout
 
         android:id="@+id/rl_gift_title"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="37dp">
+        android:layout_height="37dp"
+        android:gravity="center_vertical">
+
         <TextView
-            android:textSize="@dimen/sp12"
-            android:layout_centerInParent="true"
-            android:textColor="@color/white"
-            android:text="发送礼物"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="发送礼物"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp12" />
+
         <ImageView
             android:id="@+id/iv_gone_gift"
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp45"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:padding="@dimen/dp10"
-            android:src="@drawable/sel_liwu_up_down"
-            android:layout_alignParentRight="true"
-            android:layout_width="@dimen/dp45"
-            android:layout_height="@dimen/dp45"/>
+            android:src="@drawable/sel_liwu_up_down" />
     </RelativeLayout>
-
 
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line"
         android:layout_below="@id/gift"
-        android:background="@color/white_trans_40"
-         />
+        android:background="@color/white_trans_40" />
 
     <TextView
         android:id="@+id/layout_gift_btn_continue"
@@ -57,14 +57,13 @@
 
     <LinearLayout
         android:id="@+id/layout_gift_btnlay"
-        android:paddingLeft="@dimen/dp20"
-        android:paddingRight="@dimen/dp20"
         style="@style/room_gift_oper_container"
-        android:layout_below="@+id/gift"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        >
+        android:layout_below="@+id/gift"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp20">
 
         <LinearLayout
             android:id="@+id/layout_gift_btn_charge"
@@ -74,25 +73,26 @@
 
 
             <Button
-                android:background="@drawable/sel_gift_send"
-                android:textColor="@color/white"
-                android:text="@string/charge_charge_tip"
                 android:layout_width="@dimen/dp45"
-                android:layout_height="@dimen/dp25" />
+                android:layout_height="@dimen/dp25"
+                android:background="@drawable/sel_gift_send"
+                android:text="@string/charge_charge_tip"
+                android:textColor="@color/white" />
 
             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp5"
                 android:layout_marginRight="@dimen/dp5"
-                android:src="@drawable/liwutbi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/liwutbi" />
+
             <TextView
-                android:visibility="gone"
                 android:id="@+id/room_gift_chargeinfor_balance"
                 style="@style/room_gift_chargeinfor_balance"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center" />
+                android:gravity="center"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/layout_gift_charge_tv"
@@ -108,9 +108,9 @@
                 android:visibility="gone" />
 
             <ImageView
-                android:visibility="gone"
                 style="@style/room_gift_account_balance_right_img"
-                android:contentDescription="@string/app_name" />
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
         </LinearLayout>
 
         <View
@@ -119,25 +119,25 @@
             android:layout_weight="1" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/show_gift_sendlist"
-            android:gravity="center"
-            android:background="#FF000000"
-            android:textColor="@color/white"
-            android:text="1"
-            android:paddingRight="@dimen/dp15"
-            android:paddingLeft="@dimen/dp15"
-            android:drawableRight="@drawable/sel_liwu_up_down"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp25" />
+            android:layout_height="@dimen/dp25"
+            android:background="#FF000000"
+            android:drawableRight="@drawable/sel_liwu_up_down"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp15"
+            android:paddingRight="@dimen/dp15"
+            android:text="1"
+            android:textColor="@color/white"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/layout_gift_btn_send"
-            android:background="@drawable/sel_gift_send"
-            android:textColor="@color/white"
-            android:text="@string/room_send"
             android:layout_width="@dimen/dp45"
-            android:layout_height="@dimen/dp25" />
+            android:layout_height="@dimen/dp25"
+            android:background="@drawable/sel_gift_send"
+            android:text="@string/room_send"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>

@@ -1440,7 +1440,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
                 Log.e("wsGiftMsgWsListener", mLoginInfo.getUserId());
                 if (mLoginInfo != null && wsGiftMsg.getData().getUserId().equals(mLoginInfo.getUserId())) {
                     //用户余额
-                    mLoginInfo.setTotalBalance(Double.valueOf(wsGiftMsg.getData().getBalance()));
+                    mLoginInfo.setTotalBalance(wsGiftMsg.getData().getBalance());
                     DataManager.getInstance().saveLoginInfo(mLoginInfo);
                 }
 

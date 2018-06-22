@@ -58,8 +58,9 @@ public class MainActivity extends AppCompatActivity implements RoomInterface {
         mLoginInfo.setNickname("用户10005");
         mLoginInfo.setUserId("10005");
         mLoginInfo.setUserName("用户10005");
-        mLoginInfo.setTotalBalance(100000);
+        mLoginInfo.setTotalBalance("100000000.0");
         mLoginInfo.setLevel("1");
+        mLoginInfo.setServerId("server999");
         DataManager.getInstance().saveLoginInfo(mLoginInfo);
     }
 
@@ -139,8 +140,11 @@ public class MainActivity extends AppCompatActivity implements RoomInterface {
     }
 
     @Override
-    public void sendGift(int num, String giftName, String price, String totalMoney, String sendUserId, String hostId) {
-        Log.e("sendGift", "num:" + num + "   giftName:" + giftName + "   totalMoney:" + totalMoney + "   sendUserId:" + sendUserId + "   hostId:" + hostId);
+    public void sendGift(int num, String giftName, String price, String totalMoney,
+                         String serverId, String sendUserId, String hostId) {
+        Log.e("sendGift", "num:" + num + "   giftName:" + giftName +
+                "   totalMoney:" + totalMoney + "    serverId:" + serverId +
+                "   sendUserId:" + sendUserId + "   hostId:" + hostId);
     }
 
     @Override

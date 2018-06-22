@@ -21,10 +21,12 @@ public interface RoomInterface {
      * @param giftName   送的礼物名称
      * @param price      送的礼物的单价
      * @param totalMoney 观众剩余的金币
+     * @param serverId   观众的服务器id
      * @param sendUserId 观众的userid
-     * @param hostId     主播的id
+     * @param AnchorId     主播的id
      */
-    void sendGift(int num, String giftName, String price, String totalMoney, String sendUserId, String hostId);
+    void sendGift(int num, String giftName, String price, String totalMoney,
+                  String serverId, String sendUserId, String AnchorId);
 
     /**
      * 直播界面切换成小屏的时候调用

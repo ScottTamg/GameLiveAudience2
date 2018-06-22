@@ -314,7 +314,7 @@ public class WsObjectPool {
      * @return
      */
     public static WsSendGiftRequest newSendGiftRequest(Context context, String roomId, String anchorId, String id, String price, String selectedGiftId, int finalCombo,
-                                                       String nickName, String avatar, String level, String giftName, String giftSrc) {
+                                                       String nickName, String avatar, String level, String giftName, String giftSrc, String isFire) {
         checkInitOrThrow(context);
         WsSendGiftRequest request = get(REQ_SENDGIFT);
         request.getData().setRoomId(roomId);
@@ -329,6 +329,7 @@ public class WsObjectPool {
         request.getData().setMessage(SocketConstants.EVENT_SEND_GIFT);
         request.getData().setGiftName(giftName);
         request.getData().setGiftImg(giftSrc);
+        request.getData().setIsFire(isFire);
         return request;
     }
 

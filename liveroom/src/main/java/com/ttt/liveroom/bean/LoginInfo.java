@@ -26,7 +26,8 @@ public class LoginInfo {
     private String level;
     private String followees_cnt;
     private String followers_cnt;
-    private double balance;
+    private String balance;
+    private String serverId;
 
     public String getFollowers_cnt() {
         return followers_cnt;
@@ -52,11 +53,11 @@ public class LoginInfo {
         this.mobile = mobile;
     }
 
-    public double getTotalBalance() {
+    public String getTotalBalance() {
         return balance;
     }
 
-    public void setTotalBalance(double coinbalance) {
+    public void setTotalBalance(String balance) {
         this.balance = balance;
     }
 
@@ -109,21 +110,20 @@ public class LoginInfo {
         this.level = level;
     }
 
-
-    public double getCoinbalance() {
-        return balance;
-    }
-
-    public void setCoinbalance(double balance) {
-        this.balance = balance;
-    }
-
     public String getUserName() {
         return userName;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getServerId() {
+        return serverId;
+    }
+
+    public void setServerId(String serverId) {
+        this.serverId = serverId;
     }
 
     @Override

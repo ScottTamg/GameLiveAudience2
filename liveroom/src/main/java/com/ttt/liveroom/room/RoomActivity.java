@@ -234,7 +234,7 @@ public class RoomActivity extends BaseActivity implements HomeUiInterface {
 
     @Override
     public void getWebSocketSuccess(WebSocketInfoBean bean) {
-        Constants.SOCKET_URL = getResources().getString(R.string.web_socket_url, bean.getRoomServer().getHost(), bean.getRoomServer().getPort());
+//        Constants.SOCKET_URL = getResources().getString(R.string.web_socket_url, bean.getRoomServer().getHost(), bean.getRoomServer().getPort());
         bindService(WebSocketService.createIntent(this), wsConnection, BIND_AUTO_CREATE);
     }
 

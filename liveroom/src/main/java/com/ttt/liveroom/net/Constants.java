@@ -13,8 +13,8 @@ public class Constants {
     /**
      * 基地址
      */
-    public static final String MAIN_HOST_FOR_PING = "dev.api.customize.3ttech.cn/";//2.0版本
-//    public static final String MAIN_HOST_FOR_PING = "118.25.93.124/";
+//    public static final String MAIN_HOST_FOR_PING = "dev.api.customize.3ttech.cn/";//2.0版本
+    public static final String MAIN_HOST_FOR_PING = "118.25.93.124/";
     //服务器root地址
     public static String MAIN_HOST_URL = "http://" + MAIN_HOST_FOR_PING;
 
@@ -27,7 +27,7 @@ public class Constants {
     /**
      * Web Socket 服务器地址。
      */
-    public static String SOCKET_URL = "ws://" + "127.0.0.1" + ":9502";
+    public static String SOCKET_URL = "ws://118.25.93.124:9550";
     public static final String WEBSOCKET_ROLE_HOST = "1";
     public static final String WEBSOCKET_ROLE_AUDIENCE = "0";
 

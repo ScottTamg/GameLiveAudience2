@@ -97,7 +97,7 @@ public class NetManager {
         if (!path.startsWith("http")) {
             path = Constants.MAIN_HOST_URL + path;
         }
-        L.e("tag", path);
+//        L.e("tag", path);
         return path;
     }
 

@@ -45,6 +45,7 @@ public class WsSendGiftRequest extends WsRequest {
         private String giftImg;
         private String giftGif;
         private String giftLevel;
+        private String isFire;
 
         public String getUserIdTo() {
             return userIdTo;
@@ -156,6 +157,14 @@ public class WsSendGiftRequest extends WsRequest {
 
         public void setGiftLevel(String giftLevel) {
             this.giftLevel = giftLevel;
+        }
+
+        public String getIsFire() {
+            return isFire;
+        }
+
+        public void setIsFire(String isFire) {
+            this.isFire = isFire;
         }
     }
 
