@@ -210,21 +210,21 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         SimpleDraweeView draweeAnchor = $(view, R.id.img_user_avatar);
         draweeAnchor.setImageURI(NetManager.wrapPathToUri(mSummary.getAvatar()));
         mRoomOwner = $(view, R.id.room_owner);
-        RxView.clicks(draweeAnchor).throttleFirst(Constants.VIEW_THROTTLE_TIME,
-                TimeUnit.MILLISECONDS).subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                if (mSummary == null) {
-                    return;
-                }
-                UserInfo info = new UserInfo();
-                info.setId(mSummary.getUserId() + "");
-                info.setNickName(mSummary.getNickName());
-                info.setAvatar(mSummary.getAvatar());
-                info.setLevel(1 + "");
-                getUserInfo(info.getId());
-            }
-        });
+//        RxView.clicks(draweeAnchor).throttleFirst(Constants.VIEW_THROTTLE_TIME,
+//                TimeUnit.MILLISECONDS).subscribe(new Action1<Void>() {
+//            @Override
+//            public void call(Void aVoid) {
+//                if (mSummary == null) {
+//                    return;
+//                }
+//                UserInfo info = new UserInfo();
+//                info.setId(mSummary.getUserId() + "");
+//                info.setNickName(mSummary.getNickName());
+//                info.setAvatar(mSummary.getAvatar());
+//                info.setLevel(1 + "");
+//                getUserInfo(info.getId());
+//            }
+//        });
         // 点击开始连麦
         mRlApplayConnectMic = $(view, R.id.rl_applay_connect_mic);
         mRoomImgbtnLm = $(view, R.id.room_imgbtn_lm);
@@ -302,7 +302,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
             mChargeTv.setText("0");
         } else {
 //            String balance = DataManager.getInstance().getmUserInfo().getBalance();
-            Double balance = DataManager.getInstance().getLoginInfo().getTotalBalance();
+            double balance = DataManager.getInstance().getLoginInfo().getTotalBalance();
             mChargeTv.setText(String.valueOf(balance));
         }
         if (loginInfo != null) {
@@ -341,14 +341,14 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         });
 
         //关注按钮
-        subscribeClick(toptabstart, new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                LoginInfo loginInfo = DataManager.getInstance().getLoginInfo();
-                toFollow(loginInfo);
-
-            }
-        });
+//        subscribeClick(toptabstart, new Action1<Void>() {
+//            @Override
+//            public void call(Void aVoid) {
+//                LoginInfo loginInfo = DataManager.getInstance().getLoginInfo();
+//                toFollow(loginInfo);
+//
+//            }
+//        });
 
         startPublish();
     }
@@ -797,10 +797,10 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                         if (gift == null) {
                             return Boolean.FALSE;
                         }
-                        String balance = DataManager.getInstance().getmUserInfo().getBalance();
+                        double balance = loginInfo.getTotalBalance();
 
                         //如果一个都买不起，则返回false并提示充值
-                        if (Double.parseDouble(balance) < Double.parseDouble(gift.getPrice())) {
+                        if (balance < Double.parseDouble(gift.getPrice())) {
                             toastShort("请先充值");
                             return Boolean.FALSE;
                         }
@@ -825,22 +825,20 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
 
                             mGiftContinue.setVisibility(View.GONE);
                             //计算最大合法Combo总数
-                            UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                            String balance = userInfo.getBalance();
-                            double parseInt = Double.parseDouble(balance);
-                            double maxCombo = (double) (Double.parseDouble(balance) / Double.parseDouble(selectedGift.getPrice()));
+                            double balance = loginInfo.getTotalBalance();
+                            double maxCombo = balance / Double.parseDouble(selectedGift.getPrice());
                             int finalCombo = giftComboCount > maxCombo ? (int) maxCombo : giftComboCount;
 
-                            parseInt -= (finalCombo * Double.parseDouble(selectedGift.getPrice()));
+                            balance -= (finalCombo * Double.parseDouble(selectedGift.getPrice()));
 
                             //直接扣除余额
-                            userInfo.setBalance(String.valueOf(parseInt));
+                            loginInfo.setTotalBalance(balance);
                             //更新到永存
-                            DataManager.getInstance().saveUserinfo(userInfo);
+                            DataManager.getInstance().saveLoginInfo(loginInfo);
                             //更新显示
-                            mChargeTv.setText(DataManager.getInstance().getmUserInfo().getBalance());
-                            wsService.sendRequest(WsObjectPool.newSendGiftRequest(getContext(), mLiveId, mAnchorId, userInfo.getId(), selectedGift.getPrice(), selectedGift.getId(),
-                                    finalCombo, userInfo.getNickName(), userInfo.getAvatar(), userInfo.getLevel(), selectedGift.getName(), selectedGift.getImgSrc()));
+                            mChargeTv.setText(String.valueOf(DataManager.getInstance().getLoginInfo().getTotalBalance()));
+                            wsService.sendRequest(WsObjectPool.newSendGiftRequest(getContext(), mLiveId, mAnchorId, loginInfo.getUserId(), selectedGift.getPrice(), selectedGift.getId(),
+                                    finalCombo, loginInfo.getNickname(), loginInfo.getAvatar(), loginInfo.getLevel(), selectedGift.getName(), selectedGift.getImgSrc()));
 
                             mGiftSentBtn.setEnabled(true);
                             llOperationBar.setVisibility(View.VISIBLE);
@@ -867,25 +865,23 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                                 public void onFinish() {
                                     mGiftContinue.setVisibility(View.INVISIBLE);
                                     //计算最大合法Combo总数
-                                    UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                                    String balance = userInfo.getBalance();
-                                    double parseInt = Double.parseDouble(balance);
-                                    double maxCombo = (double) (Double.parseDouble(balance) / Double.parseDouble(selectedGift.getPrice()));
+                                    double balance = loginInfo.getTotalBalance();
+                                    double maxCombo = balance / Double.parseDouble(selectedGift.getPrice());
                                     int finalCombo = giftComboCount > maxCombo ? (int) maxCombo :
                                             giftComboCount;
 
-                                    parseInt -= (finalCombo * Double.parseDouble(selectedGift.getPrice()));
+                                    balance -= (finalCombo * Double.parseDouble(selectedGift.getPrice()));
                                     //直接扣除余额
-                                    userInfo.setBalance(String.valueOf(parseInt));
+                                    loginInfo.setTotalBalance(balance);
                                     //更新到永存
-                                    DataManager.getInstance().saveUserinfo(userInfo);
+                                    DataManager.getInstance().saveLoginInfo(loginInfo);
                                     //更新显示
-                                    mChargeTv.setText(DataManager.getInstance().getmUserInfo().getBalance());
+                                    mChargeTv.setText(String.valueOf(DataManager.getInstance().getLoginInfo().getTotalBalance()));
                                     if (finalCombo == 0) {
                                         finalCombo = 1;
                                     }
-                                    wsService.sendRequest(WsObjectPool.newSendGiftRequest(getContext(), mLiveId, mAnchorId, userInfo.getId(), selectedGift.getPrice(), selectedGift.getId(),
-                                            finalCombo, userInfo.getNickName(), userInfo.getAvatar(), userInfo.getLevel(), selectedGift.getName(), selectedGift.getImgSrc()));
+                                    wsService.sendRequest(WsObjectPool.newSendGiftRequest(getContext(), mLiveId, mAnchorId, loginInfo.getUserId(), selectedGift.getPrice(), selectedGift.getId(),
+                                            finalCombo, loginInfo.getNickname(), loginInfo.getAvatar(), loginInfo.getLevel(), selectedGift.getName(), selectedGift.getImgSrc()));
                                     mGiftSentBtn.setEnabled(true);
                                     mGiftSentBtn.setVisibility(View.VISIBLE);
                                     mGiftSendList.setVisibility(View.VISIBLE);
@@ -966,7 +962,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                     mHostNickname.setText(TextUtils.isEmpty(userInfo.getUserName()) ? "昵称" : "" + userInfo.getNickName());
                     if (userInfo.getIsAttention() == 0) {
                         toptabstart.setText("关注");
-                        toptabstart.setVisibility(View.VISIBLE);
+                        toptabstart.setVisibility(View.GONE);
                     }
                     mHostFansAccount.setText("ID " + mAnchorId);
                     handler.sendEmptyMessage(2);

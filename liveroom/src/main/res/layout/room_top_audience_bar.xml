@@ -55,7 +55,6 @@
                     android:textSize="@dimen/sp10" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/room_top_bar_start_tv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -66,7 +65,8 @@
                     android:gravity="center"
                     android:text="@string/room_top_tab_start"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp12" />
+                    android:textSize="@dimen/sp12"
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -102,7 +102,6 @@
             android:layout_marginTop="@dimen/dp6"
             android:background="@drawable/shape_user_list"
             android:gravity="center"
-
             android:text="10W+"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp12" />

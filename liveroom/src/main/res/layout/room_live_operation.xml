@@ -28,11 +28,13 @@
     <ImageButton
         android:id="@id/room_imgbtn_share"
         style="@style/RoomUserOperationImgBtn"
-        android:background="@drawable/fenxiang" />
+        android:background="@drawable/fenxiang"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <ImageButton
             android:id="@+id/room_imgbtn_xiaoxi"

@@ -330,11 +330,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
         mRoomScroll = $(view, R.id.room_scroll);
         tvGold = $(view, R.id.txt_gold_count);
         toptabstart = $(view, R.id.room_top_bar_start_tv);
-        if (mRoomType == RoomActivity.TYPE_PUBLISH_LIVE) {
-            toptabstart.setVisibility(View.GONE);
-        } else {
-            toptabstart.setVisibility(View.VISIBLE);
-        }
+        toptabstart.setVisibility(View.GONE);
 
         mRoomLiveHelp = new RoomLiveHelp(this, ((RoomActivity) getActivity()), mAnchorId);
 
@@ -342,14 +338,14 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
 
         if (mHeartAnim != null && mRoot != null && mRoomScroll != null) {
             //点亮自己
-            RxView.clicks(mRoomScroll)
-                    .throttleFirst(Constants.LIVE_ROOM_HEART_THROTTLE, TimeUnit.MILLISECONDS)
-                    .subscribe(new Action1<Void>() {
-                        @Override
-                        public void call(Void aVoid) {
-                            onRootClickAction();
-                        }
-                    });
+//            RxView.clicks(mRoomScroll)
+////                    .throttleFirst(Constants.LIVE_ROOM_HEART_THROTTLE, TimeUnit.MILLISECONDS)
+////                    .subscribe(new Action1<Void>() {
+////                        @Override
+////                        public void call(Void aVoid) {
+////                            onRootClickAction();
+////                        }
+////                    });
         }
 
         if (llChatBar != null) {
@@ -438,16 +434,16 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
                 });
 
         //贡献榜
-        subscribeClick(tvGold, new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                Intent intent = new Intent();
-                intent.setAction("ContributionActivity");
-                Bundle bundle = new Bundle();
-                bundle.putString("id", mAnchorId);
-                startActivity(intent);
-            }
-        });
+//        subscribeClick(tvGold, new Action1<Void>() {
+//            @Override
+//            public void call(Void aVoid) {
+//                Intent intent = new Intent();
+//                intent.setAction("ContributionActivity");
+//                Bundle bundle = new Bundle();
+//                bundle.putString("id", mAnchorId);
+//                startActivity(intent);
+//            }
+//        });
         TextView tvbtn = $(view, R.id.room_tvbtn_public_chat);
 
         if (tvbtn != null) {
@@ -780,11 +776,10 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
             return;
         }
         if (isKicked) {
-            UserInfo loginInfo = DataManager.getInstance().getmUserInfo();
             wsService.sendRequest(
-                    WsObjectPool.newLogoutRequest(getContext(), mLiveId, loginInfo.getId(),
-                            loginInfo.getAvatar(),
-                            loginInfo.getNickName(), loginInfo.getLevel(),
+                    WsObjectPool.newLogoutRequest(getContext(), mLiveId, mLoginInfo.getUserId(),
+                            mLoginInfo.getAvatar(),
+                            mLoginInfo.getNickname(), mLoginInfo.getLevel(),
                             Constants.WEBSOCKET_ROLE_AUDIENCE, SocketConstants.EVENT_LOGOUT));
         }
         wsService.removeAllListeners();
@@ -909,21 +904,21 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
                 starticon, new AudienceAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(UserInfo userInfo) {
-                getUserInfo(userInfo.getId());
+//                getUserInfo(userInfo.getId());
             }
         });
         recyclerAudienceList.setAdapter(audienceAdapter);
         tvOnlineCount.setText("0");
-        subscribeClick(tvOnlineCount, new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                if (mRoomType == RoomActivity.TYPE_PUBLISH_LIVE) {
-                    showUserListDialog(audienceAdapter.getDataList(), true);
-                } else {
-                    showUserListDialog(audienceAdapter.getDataList(), false);
-                }
-            }
-        });
+//        subscribeClick(tvOnlineCount, new Action1<Void>() {
+//            @Override
+//            public void call(Void aVoid) {
+//                if (mRoomType == RoomActivity.TYPE_PUBLISH_LIVE) {
+//                    showUserListDialog(audienceAdapter.getDataList(), true);
+//                } else {
+//                    showUserListDialog(audienceAdapter.getDataList(), false);
+//                }
+//            }
+//        });
     }
 
     protected void onRootClickAction() {
@@ -1442,12 +1437,11 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
         WsListener<WsGiftMsg> wsGiftMsgWsListener = new WsListener<WsGiftMsg>() {
             @Override
             public void handleData(WsGiftMsg wsGiftMsg) {
-                UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                Log.e("wsGiftMsgWsListener", userInfo.getId());
-                if (userInfo != null && wsGiftMsg.getData().getUserId().equals(userInfo.getId())) {
+                Log.e("wsGiftMsgWsListener", mLoginInfo.getUserId());
+                if (mLoginInfo != null && wsGiftMsg.getData().getUserId().equals(mLoginInfo.getUserId())) {
                     //用户余额
-                    userInfo.setBalance(String.valueOf(wsGiftMsg.getData().getBalance()));
-                    DataManager.getInstance().saveUserinfo(userInfo);
+                    mLoginInfo.setTotalBalance(Double.valueOf(wsGiftMsg.getData().getBalance()));
+                    DataManager.getInstance().saveLoginInfo(mLoginInfo);
                 }
 
             }
@@ -1458,14 +1452,13 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
         WsListener<GagResResponse> gagResResponseWsListener = new WsListener<GagResResponse>() {
             @Override
             public void handleData(GagResResponse gagResResponse) {
-                UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                if (userInfo != null && userInfo.getId().equals(gagResResponse.getData().getUserId())
+                if (mLoginInfo != null && mLoginInfo.getUserId().equals(gagResResponse.getData().getUserId())
                         && mLiveId.equals(gagResResponse.getData().getRoomId())) {
                     toastShort("你已经被禁言");
                     UserPublicMsg.UserPublicMsgData data = new UserPublicMsg.UserPublicMsgData();
-                    data.setNickName(userInfo.getNickName());
-                    data.setAvatar(userInfo.getAvatar());
-                    data.setUserId(userInfo.getId());
+                    data.setNickName(mLoginInfo.getNickname());
+                    data.setAvatar(mLoginInfo.getAvatar());
+                    data.setUserId(mLoginInfo.getUserId());
                     data.setRoomId(mLiveId);
                     UserPublicMsg publicMsg = new UserPublicMsg();
                     publicMsg.setCode("0");
@@ -1483,8 +1476,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
         WsListener<BlackListRes> blackListResWsListener = new WsListener<BlackListRes>() {
             @Override
             public void handleData(BlackListRes blackListRes) {
-                UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                if (userInfo != null && userInfo.getId().equals(blackListRes.getData().getBlacklistUserId())
+                if (mLoginInfo != null && mLoginInfo.getUserId().equals(blackListRes.getData().getBlacklistUserId())
                         && mLiveId.equals(blackListRes.getData().getRoomId())) {
                     toastShort("你已经被拉黑");
                     ((RoomActivity) getActivity()).exitLiveRoom(getRoomType() != TYPE_VIEW_LIVE);
@@ -1497,8 +1489,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
         WsListener<LmAgreeOrRefuseRes> lmAgreeOrRefuseResWsListener = new WsListener<LmAgreeOrRefuseRes>() {
             @Override
             public void handleData(LmAgreeOrRefuseRes lmAgreeOrRefuseRes) {
-                UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-                if (userInfo != null && userInfo.getId().equals(lmAgreeOrRefuseRes.getData().getUserId())
+                if (mLoginInfo != null && mLoginInfo.getUserId().equals(lmAgreeOrRefuseRes.getData().getUserId())
                         && mLiveId.equals(lmAgreeOrRefuseRes.getData().getRoomId())) {
                     dealApplyMicRequest(lmAgreeOrRefuseRes);
                 }

@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements RoomInterface {
                         bean.getTitle(),
                         bean.getPullRtmp(),
                         false,
-                        bean.getId(),
+                        bean.getRoomId(),
                         bean.getType(),
                         PlayFragment.createArgs(hostInfo)));
             }
