@@ -16,6 +16,8 @@ import com.ttt.liveroom.net.Constants;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import rx.functions.Action1;
+
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder> {
     private Context mContext;
@@ -40,11 +42,16 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.tvReportItem.setText(mList.get(position).getContent());
         RxView.clicks(holder.tvReportItem)
                 .throttleFirst(Constants.VIEW_THROTTLE_TIME, TimeUnit.MILLISECONDS)
-                .subscribe(v -> mListener.onReportItemClick(mUserId, mList.get(position).getContent()));
+                .subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        mListener.onReportItemClick(mUserId, mList.get(position).getContent());
+                    }
+                });
     }
 
     @Override

@@ -46,6 +46,7 @@ import com.ttt.liveroom.base.BaseActivity;
 import com.ttt.liveroom.base.BaseFragment;
 import com.ttt.liveroom.base.DataManager;
 import com.ttt.liveroom.bean.Danmu;
+import com.ttt.liveroom.bean.LoginInfo;
 import com.ttt.liveroom.bean.UserInfo;
 import com.ttt.liveroom.bean.gift.SendGiftAction;
 import com.ttt.liveroom.bean.room.ComplainOptionBean;
@@ -134,7 +135,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
     protected WebSocketService wsService;
     protected String mLiveId;
     protected String mStreamId;
-    private UserInfo mUserInfo;
+    private LoginInfo mLoginInfo;
 
     protected TextView tvGold;
     protected TextView mPrvChat;
@@ -310,7 +311,8 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
             iconstart.setImageResource(starticon[(int) (Math.random() * 4)]);
         }
         publicMsgId = DataManager.getInstance().getLoginInfo().getUserId();
-        publicMsgName = DataManager.getInstance().getmUserInfo().getNickName();
+        publicMsgName = DataManager.getInstance().getLoginInfo().getNickname();
+//        publicMsgName = DataManager.getInstance().getmUserInfo().getNickName();
         if (timingLogger != null) {
             timingLogger.reset(TIMING_LOG_TAG, "RoomFragment#initViews");
             timingLogger.addSplit("parseArguments");
@@ -541,9 +543,9 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
     }
 
     private void initData() {
-        mUserInfo = DataManager.getInstance().getmUserInfo();
-        mMLocalUserId = mUserInfo.getId();
-        mMLocalUserNickName = mUserInfo.getNickName();
+        mLoginInfo = DataManager.getInstance().getLoginInfo();
+        mMLocalUserId = mLoginInfo.getUserId();
+        mMLocalUserNickName = mLoginInfo.getNickname();
     }
 
     public void setAnchorId(String mAnchorId) {
@@ -605,7 +607,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
     /**
      * 断开连麦
      */
-    public void disConnectLm(String roomId, String adminUserId, String userId) {
+    public void disConnectLm(final String roomId, final String adminUserId, final String userId) {
         MessageDialog.MessageDialogListener listener = new MessageDialog.MessageDialogListener() {
             @Override
             public void onCancelClick(MessageDialog dialog) {
@@ -844,7 +846,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
      */
     protected void initWebSocket() {
         wsService = ((RoomActivity) getActivity()).getWsService();
-        if (!mAnchorId.equals(mUserInfo.getId())) {
+        if (!mAnchorId.equals(mLoginInfo.getUserId())) {
             wsService.sendRequest(WsObjectPool.newLoginRequest(getContext(),
                     mLiveId, mAnchorId, mHostAvatar, mPublishNickName, mHostLevel,
                     Constants.WEBSOCKET_ROLE_AUDIENCE, "0"));
@@ -995,7 +997,7 @@ public abstract class RoomFragment extends BaseFragment implements RoomActivity.
     /**
      * 展示用户信息的弹出框
      */
-    protected void showUserInfoPopup(@NonNull final UserInfo info, boolean isAdmin) {
+    protected void showUserInfoPopup(@NonNull final UserInfo info, final boolean isAdmin) {
         if (info == null) {
             toastShort("用户信息错误");
             return;

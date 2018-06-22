@@ -57,7 +57,7 @@ public class NetManager {
                     public Response intercept(Chain chain) throws IOException {
                         LoginInfo loginInfo = DataManager.getInstance().getLoginInfo();
                         Request request = chain.request().newBuilder()
-                                .addHeader("token", loginInfo != null ? loginInfo.getToken() : "")
+//                                .addHeader("token", loginInfo != null ? loginInfo.getToken() : "")
                                 .addHeader("device", Build.MODEL)
                                 .build();
                         return chain.proceed(request);

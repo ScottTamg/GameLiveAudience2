@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_window_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/rl_video_show"
+        android:layout_width="161dp"
+        android:layout_height="122dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_video_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </RelativeLayout>
+        <!--<ijkplayer.IjkVideoView-->
+        <!--android:id="@+id/ijk_video"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+        <ImageView
+            android:id="@+id/iv_m_close"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/selector_close" />
+
+
+        <ImageView
+            android:id="@+id/iv_m_big"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/iv_m_close"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/selector_m_big" />
+
+        <ImageView
+            android:id="@+id/iv_m_small"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/iv_m_big"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/m_suoxiao_dianji" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_video_noshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp20"
+            android:background="@drawable/shape_height40_20_yellow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_s_zhangkai"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp40"
+                android:src="@drawable/zhankai_dianji" />
+
+            <ImageView
+                android:id="@+id/iv_s_change_middle"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp40"
+                android:src="@drawable/m_zhankai_dianji"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_s_exit"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp20"
+                android:src="@drawable/guanbi_s"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_s_suoxiao"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:src="@drawable/suoxiao_s"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_live_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="超然的游戏音乐"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_small_video_root"
+                android:layout_width="@dimen/dp10"
+                android:layout_height="@dimen/dp10"
+                android:layout_centerInParent="true" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/gift_anim_drawee_creator"
+                android:layout_width="50.0dip"
+                android:layout_height="50.0dip"
+                fresco:fadeDuration="0"
+                fresco:placeholderImage="@drawable/main_bg"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:roundAsCircle="true"
+                fresco:roundingBorderColor="@color/md_yellow_500"
+                fresco:roundingBorderWidth="2.0dip" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

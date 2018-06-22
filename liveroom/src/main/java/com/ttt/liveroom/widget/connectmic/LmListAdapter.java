@@ -19,6 +19,8 @@ import com.ttt.liveroom.net.Constants;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import rx.functions.Action1;
+
 
 public class LmListAdapter extends RecyclerView.Adapter<LmListAdapter.ViewHolder> {
     private static final int LM_USER_MAX_NUM = 2;
@@ -46,7 +48,7 @@ public class LmListAdapter extends RecyclerView.Adapter<LmListAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.mAvatar.setImageURI(Uri.parse(mList.get(position).getAvatar()));
         holder.mIntroduction.setText("申请连麦");
         holder.mNickName.setText(mList.get(position).getNickName());
@@ -74,20 +76,26 @@ public class LmListAdapter extends RecyclerView.Adapter<LmListAdapter.ViewHolder
 
         RxView.clicks(holder.mTvDone)
                 .throttleFirst(Constants.VIEW_THROTTLE_TIME, TimeUnit.MILLISECONDS)
-                .subscribe(v -> {
-                    mList.get(position).setType(AGREE_LM);
-                    notifyItemMoved(position, 0);
-                    notifyDataSetChanged();
-                    mLmUserCount++;
-                    mListener.onDoneClick(mList.get(position));
+                .subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        mList.get(position).setType(AGREE_LM);
+                        notifyItemMoved(position, 0);
+                        notifyDataSetChanged();
+                        mLmUserCount++;
+                        mListener.onDoneClick(mList.get(position));
+                    }
                 });
         RxView.clicks(holder.mDisconnect)
                 .throttleFirst(Constants.VIEW_THROTTLE_TIME, TimeUnit.MILLISECONDS)
-                .subscribe(v -> {
-                    ResponseMicBean.DataBean dataBean = mList.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemRangeChanged(position, mList.size());
-                    mListener.onDisConnectClick(dataBean);
+                .subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        ResponseMicBean.DataBean dataBean = mList.remove(position);
+                        notifyItemRemoved(position);
+                        notifyItemRangeChanged(position, mList.size());
+                        mListener.onDisConnectClick(dataBean);
+                    }
                 });
     }
 

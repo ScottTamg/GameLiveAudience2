@@ -32,15 +32,15 @@ import java.util.List;
 public class UserListDialog extends Dialog {
 
     private List<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList> dataList = new ArrayList<>();
-    private Context context ;
+    private Context context;
     private RecyclerView mRecyclerView;
     private TextView mLimtUserListCount;
-    private boolean mIsAdmin ;
+    private boolean mIsAdmin;
     private DialogListener listener;
 
     public UserListDialog(@NonNull Context context, List<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList> dataList, boolean isAndim) {
         super(context, R.style.DialogStyle);
-        this.dataList = dataList ;
+        this.dataList = dataList;
         this.context = context;
         this.mIsAdmin = isAndim;
     }
@@ -61,7 +61,7 @@ public class UserListDialog extends Dialog {
         mRecyclerView.addItemDecoration(ItemDecorations.vertical(context)
                 .type(0, R.drawable.divider_decoration_transparent_h1)
                 .create());
-        UserListAdapter adapter = new UserListAdapter(context,dataList);
+        UserListAdapter adapter = new UserListAdapter(context, dataList);
         mRecyclerView.setAdapter(adapter);
 
     }
@@ -82,11 +82,12 @@ public class UserListDialog extends Dialog {
         dialogWindow.setAttributes(lp);
     }
 
-    private class UserListAdapter extends SimpleRecyclerAdapter<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList,UserListHolder>{
+    private class UserListAdapter extends SimpleRecyclerAdapter<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList, UserListHolder> {
         private List<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList> mDataLists = new ArrayList<>();
-        public UserListAdapter(Context context,List list) {
+
+        public UserListAdapter(Context context, List list) {
             super(context, list);
-            this.mDataLists = list ;
+            this.mDataLists = list;
         }
 
         @Override
@@ -96,9 +97,9 @@ public class UserListDialog extends Dialog {
 
         @Override
         public int getItemCount() {
-            if(mDataLists.size()==100){
+            if (mDataLists.size() == 100) {
                 mLimtUserListCount.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 mLimtUserListCount.setVisibility(View.GONE);
             }
             return super.getItemCount();
@@ -111,10 +112,11 @@ public class UserListDialog extends Dialog {
         }
 
     }
-    private class UserListHolder extends SimpleRecyclerHolder<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList>{
+
+    private class UserListHolder extends SimpleRecyclerHolder<SystemWelcome.SystemWelcomeData.SystemWelcomeDataList> {
 
         private SimpleDraweeView mSimpleDraweeView;
-        private TextView mNickName,complaint;
+        private TextView mNickName, complaint;
 
         public UserListHolder(View itemView) {
             super(itemView);
@@ -127,26 +129,26 @@ public class UserListDialog extends Dialog {
         public void displayData(Context context, SystemWelcome.SystemWelcomeData.SystemWelcomeDataList data) {
             mNickName.setText(data.getNickName());
             mSimpleDraweeView.setImageURI(NetManager.wrapPathToUri(data.getAvatar()));
-            if(mIsAdmin){
+            if (mIsAdmin) {
                 complaint.setVisibility(View.VISIBLE);
-                UserInfo userInfo = new UserInfo();
+                final UserInfo userInfo = new UserInfo();
                 userInfo.setAvatar(data.getAvatar());
                 userInfo.setId(data.getUserId());
                 userInfo.setNickName(data.getNickName());
                 complaint.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        listener.onComplaint(UserListDialog.this,userInfo);
+                        listener.onComplaint(UserListDialog.this, userInfo);
                     }
                 });
-            }else {
+            } else {
                 complaint.setVisibility(View.GONE);
             }
         }
     }
 
     public interface DialogListener {
-        void onComplaint(UserListDialog dialog,UserInfo userInfo);
+        void onComplaint(UserListDialog dialog, UserInfo userInfo);
     }
 
     public void setItemClickListener(DialogListener listener) {

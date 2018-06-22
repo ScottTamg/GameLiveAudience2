@@ -146,7 +146,6 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     private LiveView mRlRomoteLiveB;
     private ArrayList<LiveView> mLiveViewList = new ArrayList();
     private boolean isFirstEnter = true;
-    private UserInfo mMeInfo;
 
     private boolean isIntRoom = false;
 
@@ -201,7 +200,6 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         timingLogger.reset(TIMING_LOG_TAG, "PlayerFragment#initViews");
         presenter = new PlayPresenter(this);
         loginInfo = DataManager.getInstance().getLoginInfo();
-        mMeInfo = DataManager.getInstance().getmUserInfo();
         if (loginInfo != null) {
             presenter.watchLive(loginInfo.getToken(), loginInfo.getUserId(), mSummary.getUserId() + "");
         }
@@ -231,20 +229,23 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         mRlApplayConnectMic = $(view, R.id.rl_applay_connect_mic);
         mRoomImgbtnLm = $(view, R.id.room_imgbtn_lm);
         mTvMicText = $(view, R.id.tv_mic_text);
-        subscribeClick(mRlApplayConnectMic, v -> {
-            if (isIntRoom) {
-                toastShort("你正在和主播连麦中");
-                mRoomImgbtnLm.setImageResource(R.drawable.lianmaizhong_dianji);
-                mTvMicText.setText("连麦中");
-                return;
+        subscribeClick(mRlApplayConnectMic, new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                if (isIntRoom) {
+                    toastShort("你正在和主播连麦中");
+                    mRoomImgbtnLm.setImageResource(R.drawable.lianmaizhong_dianji);
+                    mTvMicText.setText("连麦中");
+                    return;
+                }
+                if (!isCanApplayLm) {
+                    toastShort("您正在申请连麦中，请等待主播回复！");
+                    mRoomImgbtnLm.setImageResource(R.drawable.shenqinglianmai_dianji);
+                    mTvMicText.setText("等待连麦");
+                    return;
+                }
+                showLMRequestDialog();
             }
-            if (!isCanApplayLm) {
-                toastShort("您正在申请连麦中，请等待主播回复！");
-                mRoomImgbtnLm.setImageResource(R.drawable.shenqinglianmai_dianji);
-                mTvMicText.setText("等待连麦");
-                return;
-            }
-            showLMRequestDialog();
         });
         mScreenLandOrPortr = $(view, R.id.room_imgbtn_screen);
         // 点击切换大小屏
@@ -300,7 +301,8 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         if (loginInfo == null) {
             mChargeTv.setText("0");
         } else {
-            String balance = DataManager.getInstance().getmUserInfo().getBalance();
+//            String balance = DataManager.getInstance().getmUserInfo().getBalance();
+            Double balance = DataManager.getInstance().getLoginInfo().getTotalBalance();
             mChargeTv.setText(String.valueOf(balance));
         }
         if (loginInfo != null) {
@@ -415,7 +417,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
      *
      * @param giftSendList
      */
-    private void showSendListPopu(TextView giftSendList) {
+    private void showSendListPopu(final TextView giftSendList) {
 
         if (popupWindowGiftSendList == null) {
             final View inflate = LayoutInflater.from(getContext())
@@ -428,7 +430,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                 GiftSendNumBean giftSendNumBean = mGiftSendNumBeans.get(i);
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.item_gift_sendnum, null);
                 giftSendNumLl.addView(view);
-                TextView tvNum = view.findViewById(R.id.send_gift_num);
+                final TextView tvNum = view.findViewById(R.id.send_gift_num);
                 TextView tvName = view.findViewById(R.id.send_gift_name);
                 tvNum.setText(giftSendNumBean.getNum());
                 tvName.setText(giftSendNumBean.getName());
@@ -602,7 +604,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                 }
 
                 // 发送连麦请求
-                applyMicRequestToServer(mLiveId, mAnchorId, mMLocalUserId, mMLocalUserNickName, mMeInfo.getAvatar());
+                applyMicRequestToServer(mLiveId, mAnchorId, mMLocalUserId, mMLocalUserNickName, loginInfo.getAvatar());
                 // 直接进房间,暂时屏蔽此操作
                 //mRoomLiveHelp.enterRoom(EnterConfApi.RoomMode.ROOM_MODE_LIVE.ordinal(),2,Integer.parseInt(mAnchorId),Long.parseLong(DataManager.getInstance().getLoginInfo().getUserId()));
 
@@ -764,7 +766,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     }
 
     @Override
-    public void showGiftList(List<Gift> giftList) {
+    public void showGiftList(final List<Gift> giftList) {
         mGiftView.setGiftDatas(giftList);
         mGiftView.setGiftSelectChangeListener(new GiftClickListener() {
             @Override
@@ -979,8 +981,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     public void onResume() {
         super.onResume();
 
-        String balance = DataManager.getInstance().getmUserInfo().getBalance();
-        mChargeTv.setText(String.valueOf(balance));
+        mChargeTv.setText(String.valueOf(loginInfo.getTotalBalance()));
 
         if (mVideoView != null) {
             mVideoView.onResume();
@@ -1048,7 +1049,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            sendHearedBeat(mLiveId, mMeInfo.getId(), Constants.WEBSOCKET_ROLE_AUDIENCE, mStreamId);
+            sendHearedBeat(mLiveId, loginInfo.getUserId(), Constants.WEBSOCKET_ROLE_AUDIENCE, mStreamId);
         }
     };
 

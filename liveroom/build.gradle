@@ -25,7 +25,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
 }
 repositories {
     jcenter()

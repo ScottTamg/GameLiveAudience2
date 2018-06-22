@@ -189,18 +189,19 @@ public class WsObjectPool {
 
     public static WsLoginRequest newLoginRequest(Context context, String roomId, String userId, String avatar, String nickname, String level, String role, String income) {
         checkInitOrThrow(context);
-        UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-        String username = userInfo.getNickName();
-        String userAvatar = userInfo.getAvatar();
-        String balance = userInfo.getBalance();
+//        UserInfo userInfo = DataManager.getInstance().getmUserInfo();
+        LoginInfo info = DataManager.getInstance().getLoginInfo();
+        String username = info.getNickname();
+        String userAvatar = info.getAvatar();
+        String balance = String.valueOf(info.getTotalBalance());
         WsLoginRequest request = get(REQ_LOGIN);
         request.getData().setRoomId(roomId);
-        request.getData().setUserId(userInfo.getId());
+        request.getData().setUserId(info.getUserId());
         request.getData().setNickName(TextUtils.isEmpty(username) ? "昵称" : username);
         request.getData().setAvatar(userAvatar);
         request.getData().setMessage(SocketConstants.EVENT_LOGIN);
         request.getData().setRole(Integer.parseInt(role));
-        request.getData().setLevel(Integer.parseInt(userInfo.getLevel()));
+        request.getData().setLevel(Integer.parseInt(info.getLevel()));
         request.getData().setMasterUserId(Integer.parseInt(userId));
         request.getData().setMasterAvatar(TextUtils.isEmpty(avatar) ? "http://3tdoc.oss-cn-beijing.aliyuncs.com/wechat/avatar/8.jpg" : avatar);
         request.getData().setMasterNickName(TextUtils.isEmpty(nickname) ? "主播昵称" : nickname);
@@ -226,10 +227,11 @@ public class WsObjectPool {
     public static WsPublicMsgRequest newPublicMsgRequest(Context context, String anchorId, String content, String flymsg) {
         checkInitOrThrow(context);
 
-        UserInfo userInfo = DataManager.getInstance().getmUserInfo();
-        String userId = userInfo.getId();
-        String nickName = userInfo.getNickName();
-        String avatar = userInfo.getAvatar();
+//        UserInfo userInfo = DataManager.getInstance().getmUserInfo();
+        LoginInfo info = DataManager.getInstance().getLoginInfo();
+        String userId = info.getUserId();
+        String nickName = info.getNickname();
+        String avatar = info.getAvatar();
         Log.e("WsPublicMsgRequest", userId + "==userId ," + nickName + "==nickName ," +avatar + "==avatar");
         WsPublicMsgRequest request = get(REQ_SEND_PUB_MSG);
         request.getData().setRoomId(anchorId);

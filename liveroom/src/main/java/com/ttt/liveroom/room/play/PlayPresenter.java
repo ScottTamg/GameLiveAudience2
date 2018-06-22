@@ -122,7 +122,7 @@ public class PlayPresenter extends BasePresenter<PlayerUiInterface> {
      *
      * @param userId
      */
-    public void loadUserInfo(String userId, boolean isPopup) {
+    public void loadUserInfo(String userId, final boolean isPopup) {
         Subscription subscription = null;
         LoginInfo loginInfo = DataManager.getInstance().getLoginInfo();
         String caller_id = null;
@@ -200,7 +200,7 @@ public class PlayPresenter extends BasePresenter<PlayerUiInterface> {
     /**
      * 获取举报选项
      */
-    public void getComplainOptions(String reportId) {
+    public void getComplainOptions(final String reportId) {
         Subscription subscription = NetManager.getInstance().create(RoomApi.class).getComplainOption("1", "10")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

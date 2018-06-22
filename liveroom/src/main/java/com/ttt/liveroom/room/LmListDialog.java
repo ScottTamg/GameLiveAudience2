@@ -192,7 +192,7 @@ public class LmListDialog extends Dialog implements View.OnClickListener {
         }
 
         @Override
-        public void displayData(Context context, final ResponseMicBean.DataBean data) {
+        public void displayData(final Context context, final ResponseMicBean.DataBean data) {
             if (!TextUtils.isEmpty(data.getAvatar())) {
                 mAvater.setImageURI(Uri.parse(data.getAvatar()));
             }

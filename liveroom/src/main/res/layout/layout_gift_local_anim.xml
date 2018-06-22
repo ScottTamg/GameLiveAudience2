@@ -68,7 +68,7 @@
         fresco:fadeDuration="0"
         fresco:placeholderImageScaleType="fitCenter" />
 
-    <com.wushuang.live.ui.widget.StrokeTextView
+    <com.ttt.liveroom.widget.StrokeTextView
         android:id="@+id/gift_anim_tv_combo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,4 +82,5 @@
         app:innerColor="@color/continue_gift_x_color"
         app:outerColor="@color/md_orange_400"
         tools:text="X1" />
+
 </RelativeLayout>

@@ -41,7 +41,7 @@ import rx.Subscription;
  * @author liujing
  * Created by 刘景 on 2017/06/05.
  */
-public class RoomActivity extends BaseActivity implements HomeUiInterface{
+public class RoomActivity extends BaseActivity implements HomeUiInterface {
 
     private final String LOG_TAG = RoomActivity.class.getSimpleName();
 
@@ -131,13 +131,13 @@ public class RoomActivity extends BaseActivity implements HomeUiInterface{
 //                mViewPager.setVisibility(View.VISIBLE);
 //                mViewPager.setAdapter(mSectionsPagerAdapter);
 //            } else {
-                mViewPager.setVisibility(View.GONE);
-                TimingLogger logger = new TimingLogger("timing", "RoomActivity");
-                getSupportFragmentManager().beginTransaction()
-                        .add(FRAG_CONTAINER, createFragmentByType())
-                        .commit();
-                logger.addSplit("add fragment");
-                logger.dumpToLog();
+            mViewPager.setVisibility(View.GONE);
+            TimingLogger logger = new TimingLogger("timing", "RoomActivity");
+            getSupportFragmentManager().beginTransaction()
+                    .add(FRAG_CONTAINER, createFragmentByType())
+                    .commit();
+            logger.addSplit("add fragment");
+            logger.dumpToLog();
 //            }
         }
     }
