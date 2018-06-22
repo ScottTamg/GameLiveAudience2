@@ -29,7 +29,9 @@ import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.jakewharton.rxbinding.view.RxView;
+import com.ttt.liveroom.Config;
 import com.ttt.liveroom.R;
+import com.ttt.liveroom.RoomManager;
 import com.ttt.liveroom.base.DataManager;
 import com.ttt.liveroom.bean.GetFriendBean;
 import com.ttt.liveroom.bean.HotAnchorSummary;
@@ -48,6 +50,7 @@ import com.ttt.liveroom.room.RoomActivity;
 import com.ttt.liveroom.room.RoomFragment;
 import com.ttt.liveroom.room.ijkplayer.PlayerManager;
 import com.ttt.liveroom.room.utils.EnterUserInfo;
+import com.ttt.liveroom.room.window.PlayerActivityManager;
 import com.ttt.liveroom.util.MrlCountDownTimer;
 import com.ttt.liveroom.util.Networks;
 import com.ttt.liveroom.websocket.SocketConstants;
@@ -77,12 +80,14 @@ import retrofit2.Response;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
+import static com.ttt.liveroom.room.RoomActivity.TYPE_VIEW_LIVE;
+
 /**
  * @author liujing
  * Created by 刘景 on 2017/06/11.
  */
 public class PlayFragment extends RoomFragment implements PlayerUiInterface,
-        PlayerManager.PlayerStateListener {
+        PlayerActivityManager.PlayerStateListener {
 
     private final String LOG_TAG = PlayFragment.class.getSimpleName();
     private static final String ARG_ANCHOR_SUMMARY = "anchor";
@@ -92,7 +97,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     ImageView loadingView;
     RelativeLayout surfaceFrame;
     IjkVideoView mVideoView;
-    private PlayerManager playerManager;
+    private PlayerActivityManager playerManager;
 
     private String playbackUrl = "";
 
@@ -168,6 +173,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
     private PopupWindow popupWindowGiftSendList;
 
     private List<GiftSendNumBean> mGiftSendNumBeans = new LinkedList<>();
+    private ImageView mIvChangeSmall;
 
     @Override
     protected int getLayoutId() {
@@ -227,6 +233,11 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
 //        });
         // 点击开始连麦
         mRlApplayConnectMic = $(view, R.id.rl_applay_connect_mic);
+        if (Constants.IS_LIVE.equals("0")) {
+            mRlApplayConnectMic.setVisibility(View.VISIBLE);
+        } else {
+            mRlApplayConnectMic.setVisibility(View.GONE);
+        }
         mRoomImgbtnLm = $(view, R.id.room_imgbtn_lm);
         mTvMicText = $(view, R.id.tv_mic_text);
         subscribeClick(mRlApplayConnectMic, new Action1<Void>() {
@@ -351,6 +362,23 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
 //        });
 
         startPublish();
+
+        mIvChangeSmall = $(view, R.id.iv_change_m_small);
+
+        RxView.clicks(mIvChangeSmall).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                RoomManager.getInstance().getRoomInstance().changeSmall();
+                ((RoomActivity) getActivity()).exitLiveRoom(getRoomType() != TYPE_VIEW_LIVE);
+            }
+        });
+
+        ImageView audioBg = $(view, R.id.iv_audio_bg);
+        if ("1".equals(Constants.IS_LIVE)) {
+            audioBg.setVisibility(View.GONE);
+        } else {
+            audioBg.setVisibility(View.VISIBLE);
+        }
     }
 
     int UPLOAD = 1;
@@ -574,8 +602,9 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         lp.addRule(RelativeLayout.CENTER_IN_PARENT);
         lp.height = getSurfaceViewHeight();
+        Config.SCREEND_HEIGHT = lp.height;
         mVideoView.setLayoutParams(lp);
-        playerManager = new PlayerManager(this, mVideoView);
+        playerManager = new PlayerActivityManager(this, mVideoView);
         playerManager.setPlayerStateListener(this);
         playerManager.play(playbackUrl);
         playerManager.setScaleType(PlayerManager.SCALETYPE_FILLPARENT);
@@ -1024,6 +1053,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
             mVideoView = null;
         }
         isIntRoom = true;
+        mIvChangeSmall.setVisibility(View.GONE);
     }
 
     private void startPublish() {
@@ -1087,6 +1117,7 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
      */
     private void quitConference() {
         isIntRoom = false;
+        mIvChangeSmall.setVisibility(View.VISIBLE);
         mRlLocalLive.removeAllViews();
         removeAll();
         isCanApplayLm = true;

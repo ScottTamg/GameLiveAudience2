@@ -2,11 +2,16 @@ package com.ttt.liveroom.widget;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.media.Image;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ttt.liveroom.R;
 import com.ttt.liveroom.util.PixelUtil;
@@ -22,6 +27,7 @@ public class LiveView extends RelativeLayout {
     private Context mContext;
     private LiveViewListener mListener;
     private ImageView mIvClose;
+    private TextView mTextView;
 
     public long getFlagUserId() {
         return flagUserId;
@@ -70,6 +76,33 @@ public class LiveView extends RelativeLayout {
 //        init();
     }
 
+    private void initBg() {
+        LinearLayout ll = new LinearLayout(mContext);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        ll.setLayoutParams(layoutParams);
+
+        ImageView imageView = new ImageView(mContext);
+        imageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_default_head));
+        int size = PixelUtil.dp2px(mContext, 70);
+        LinearLayout.LayoutParams imlp = new LinearLayout.LayoutParams(size, size);
+        imlp.topMargin = PixelUtil.dp2px(mContext, 14);
+        imlp.gravity = Gravity.CENTER_HORIZONTAL;
+        imageView.setLayoutParams(imlp);
+        ll.addView(imageView);
+
+        mTextView = new TextView(mContext);
+        mTextView.setTextColor(mContext.getResources().getColor(R.color.white));
+        mTextView.setTextSize(12);
+        mTextView.setText(String.valueOf(flagUserId));
+        LinearLayout.LayoutParams tvlp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tvlp.gravity = Gravity.CENTER_HORIZONTAL;
+        mTextView.setLayoutParams(tvlp);
+        ll.addView(mTextView);
+
+        addView(ll);
+    }
+
     private void init() {
         mIvClose = new ImageButton(mContext);
         int size = PixelUtil.dp2px(mContext, 20);
@@ -95,6 +128,7 @@ public class LiveView extends RelativeLayout {
     }
 
     public void showClose(boolean show) {
+        initBg();
         if (show) {
             init();
         }

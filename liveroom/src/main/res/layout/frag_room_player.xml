@@ -37,6 +37,14 @@
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent" />
 
+    <ImageView
+        android:id="@+id/iv_audio_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/yuyinbeijing"
+        android:visibility="gone" />
+
     <RelativeLayout
         android:id="@+id/room_move_layout"
         android:layout_width="match_parent"
@@ -48,6 +56,16 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/dp30"
             android:background="@drawable/live_close" />
+
+        <ImageView
+            android:id="@+id/iv_change_m_small"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/room_imgbtn_close"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/m_suoxiao_dianji" />
 
         <!-- 顶部观看直播人数和列表-->
         <include layout="@layout/room_top_audience_bar" />

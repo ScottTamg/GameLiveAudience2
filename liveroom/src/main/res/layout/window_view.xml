@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/rl_video_show"
-        android:layout_width="161dp"
-        android:layout_height="122dp">
+        android:layout_width="90dp"
+        android:layout_height="160dp">
 
         <RelativeLayout
             android:id="@+id/rl_video_root"

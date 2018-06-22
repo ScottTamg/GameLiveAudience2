@@ -149,7 +149,7 @@ public class SmallScreenHelp implements View.OnClickListener {
                     bean.getTitle(),
                     bean.getPullRtmp(),
                     false,
-                    bean.getId(),
+                    bean.getRoomId(),
                     bean.getType(),
                     PlayFragment.createArgs(hostInfo)));
             removeWindowView();
