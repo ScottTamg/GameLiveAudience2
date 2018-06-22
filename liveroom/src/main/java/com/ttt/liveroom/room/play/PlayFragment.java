@@ -928,6 +928,16 @@ public class PlayFragment extends RoomFragment implements PlayerUiInterface,
                                             finalCombo, loginInfo.getNickname(), loginInfo.getAvatar(),
                                             loginInfo.getLevel(), selectedGift.getName(),
                                             selectedGift.getImgSrc(), selectedGift.getIsFire()));
+
+                                    RoomManager.getInstance().getRoomInstance()
+                                            .sendGift(finalCombo,
+                                                    String.valueOf(selectedGift.getName()),
+                                                    selectedGift.getPrice(),
+                                                    String.valueOf(balance),
+                                                    loginInfo.getServerId(),
+                                                    loginInfo.getUserId(),
+                                                    mAnchorId);
+
                                     mGiftSentBtn.setEnabled(true);
                                     mGiftSentBtn.setVisibility(View.VISIBLE);
                                     mGiftSendList.setVisibility(View.VISIBLE);
