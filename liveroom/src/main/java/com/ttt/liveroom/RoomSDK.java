@@ -31,7 +31,8 @@ public class RoomSDK {
         mContext = context;
         SPUtils.init(mContext, "gamelive");
         Fresco.initialize(mContext);
-        TTTSDK.init(mContext, "a967ac491e3acf92eed5e1b5ba641ab7");
+        //天象APPID
+        TTTSDK.init(mContext, "555e189bf1278119c78f6b1753bfe4b5");
     }
 
     public static Context getContext() {
